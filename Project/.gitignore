@@ -5,7 +5,7 @@ target/
 
 ### IntelliJ IDEA ###
 *.idea
-*.mvnw
+*.mvn
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
