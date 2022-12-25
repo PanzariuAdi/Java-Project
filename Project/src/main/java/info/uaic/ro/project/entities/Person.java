@@ -1,6 +1,7 @@
 package info.uaic.ro.project.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Column;
@@ -8,8 +9,9 @@ import javax.persistence.MappedSuperclass;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @MappedSuperclass
-public class Person extends AbstractEntity<Integer> {
+public abstract class Person extends AbstractEntity<Integer> {
     @Column(name = "firstname")
     protected String firstName;
 

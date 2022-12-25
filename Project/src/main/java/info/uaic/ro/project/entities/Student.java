@@ -1,20 +1,20 @@
 package info.uaic.ro.project.entities;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Getter
 @Setter
 @Entity
+@NoArgsConstructor
 @NamedQueries({
         @NamedQuery(name = "Student.findAll", query = "SELECT s FROM Student s"),
 })
+@Table(name = "students")
 public class Student extends Person implements Serializable {
     @Column(name = "registration_number")
     private String registrationNumber;

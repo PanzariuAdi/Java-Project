@@ -9,7 +9,7 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <cc:interface>
-        <cc:attribute name="dataView" type="com.example.laboratory3.beans.DataViewBean"/>
+        <cc:attribute name="dataView" type="info.uaic.ro.project.beans.DataViewBean"/>
     </cc:interface>
 
     <cc:implementation>
@@ -18,7 +18,13 @@
                      var="entity"
                      rowKey="#{entity.id}"
                      selection="#{cc.attrs.dataView.selectedEntity}"
-                     selectionMode="single">
+                     selectionMode="single"
+                     rows="10"
+                     paginator="true"
+                     paginatorPosition="bottom"
+                     paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+                     currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
+                     rowsPerPageTemplate="5,10,25,{ShowAll|'All'}" >
 
             <p:column headerText="Id">
                 <h:outputText value="#{entity.id}" />

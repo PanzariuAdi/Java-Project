@@ -1,15 +1,21 @@
 package info.uaic.ro.project.entities;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-
+@Getter
+@Setter
 @Entity
+@NoArgsConstructor
 @NamedQueries({
-        @NamedQuery(name = "Group.findAll", query = "SELECT f FROM FacultyGroup f"),
+        @NamedQuery(name = "FacultyGroup.findAll", query = "SELECT f FROM FacultyGroup f"),
 })
+@Table(name = "groups")
 public class FacultyGroup extends AbstractEntity<Integer> {
+
+    @Column(name = "name")
     private String name;
 
     public FacultyGroup(Integer id, String name) {

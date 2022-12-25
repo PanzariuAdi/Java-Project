@@ -9,7 +9,7 @@ import java.util.List;
 public abstract class DataRepository<T> implements Serializable {
     protected Class<T> entityClass;
 
-    @PersistenceContext(name = "")
+    @PersistenceContext(name = "GPU")
     private EntityManager entityManager;
 
     protected DataRepository(Class<T> entityClass) {
