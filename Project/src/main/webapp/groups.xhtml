@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:my="http://xmlns.jcp.org/jsf/composite/components"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<f:view>
+    <ui:composition template="WEB-INF/templates/page.xhtml">
+        <ui:define name="header">
+            <ui:include src="WEB-INF/templates/header.xhtml" />
+        </ui:define>
+
+        <ui:define name="content">
+            <p:menubar>
+                <p:menuitem>
+                    <p:commandButton value="Add group"
+                                     type="button"
+                                     icon="pi pi-save"
+                                     onclick="PF('addGroupDlg').show()"/>
+                </p:menuitem>
+
+                <p:menuitem>
+                    <p:commandButton value="Delete group"
+                                     type="button"
+                                     icon="pi pi-save"
+                                     onclick="PF('deleteGroupDlg').show()"/>
+                </p:menuitem>
+            </p:menubar>
+
+            <h1>Groups</h1>
+            <h:form id="groupForm">
+                <my:dataTable id="groupTable" dataView="#{groupView}">
+                    <p:column headerText="Name">
+                        <h:outputText value="#{entity.name}" />
+                    </p:column>
+                </my:dataTable>
+            </h:form>
+
+            <h:form>
+                <span class="ui-float-label">
+                    <p:inputText id="groupName" value="#{groupBean.name}" />
+                    <p:outputLabel for="@previous" value="Name" />
+                </span>
+
+                <p:commandButton value="Submit"
+                                 action="#{groupBean.addGroup}"
+                                 update=":groupForm" >
+                </p:commandButton>
+            </h:form>
+
+            <p:dialog header="Add group" id="addGroupDialog" widgetVar="addGroupDlg" minHeight="40" width="350" showEffect="fade" modal="true">
+                <h:form>
+                    <span class="ui-float-label">
+                        <p:inputText id="firstname" value="#{groupBean.name}" />
+                        <p:outputLabel for="@previous" value="Name" />
+                    </span>
+
+                    <p:commandButton value="Submit"
+                                     action="#{groupBean.addGroup}"
+                                     update=":groupForm" >
+                    </p:commandButton>
+                </h:form>
+            </p:dialog>
+
+            <p:dialog header="Delete group" id="deleteGroupDialog" widgetVar="deleteGroupDlg" minHeight="40" width="350" showEffect="fade" modal="true">
+                <h:form>
+                  <span class="ui-float-label">
+                     <p:inputText id="groupid" value="#{groupBean.id}" />
+                     <p:outputLabel for="@previous" value="Group id" />
+                  </span>
+
+                    <p:commandButton value="Submit"
+                                     action="#{groupBean.deleteGroup}"
+                                     update=":groupForm" >
+                    </p:commandButton>
+                </h:form>
+            </p:dialog>
+        </ui:define>
+
+        <ui:define name="footer">
+            <ui:include src="WEB-INF/templates/footer.xhtml" />
+        </ui:define>
+    </ui:composition>
+</f:view>
+</html>

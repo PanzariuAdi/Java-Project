@@ -14,4 +14,9 @@ public class Secretary extends Person implements Serializable {
     public Secretary(Integer id, String firstName, String lastName) {
         super(id, firstName, lastName);
     }
+
+    public Secretary(String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
 }

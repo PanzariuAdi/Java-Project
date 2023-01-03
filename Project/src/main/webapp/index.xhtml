@@ -3,9 +3,9 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui"
+      xmlns:my="http://xmlns.jcp.org/jsf/composite/components"
       xmlns:jsf="http://xmlns.jcp.org/jsf"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:my="http://xmlns.jcp.org/jsf/composite/components"
       xmlns:jsp="http://xmlns.jcp.org/jsp/jstl/core">
 
 <f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
@@ -22,56 +22,6 @@
 
         <ui:define name="content">
 
-            <h1>Students</h1>
-            <h:form id="studentForm">
-                <my:dataTable id="studentTable" dataView="#{studentView}">
-                    <p:column headerText="Firstname">
-                        <h:outputText value="#{entity.firstName}" />
-                    </p:column>
-
-                    <p:column headerText="Lastname">
-                        <h:outputText value="#{entity.lastName}" />
-                    </p:column>
-
-                    <p:column headerText="Registration number">
-                        <h:outputText value="#{entity.registrationNumber}" />
-                    </p:column>
-
-                    <p:column headerText="Group id">
-                        <h:outputText value="#{entity.group}" />
-                    </p:column>
-
-                    <p:column headerText="Grade">
-                        <h:outputText value="#{entity.grade}" />
-                    </p:column>
-
-                    <p:column headerText="Grade">
-                        <h:outputText value="#{entity.year}" />
-                    </p:column>
-                </my:dataTable>
-            </h:form>
-
-            <h1>Groups</h1>
-            <h:form id="groupForm">
-                <my:dataTable id="groupTable" dataView="#{groupView}">
-                    <p:column headerText="Name">
-                        <h:outputText value="#{entity.name}" />
-                    </p:column>
-                </my:dataTable>
-            </h:form>
-
-            <h1>Secretaries</h1>
-            <h:form id="secretaryForm">
-                <my:dataTable id="secretaryTable" dataView="#{secretaryView}">
-                    <p:column headerText="Firstname">
-                        <h:outputText value="#{entity.firstName}" />
-                    </p:column>
-
-                    <p:column headerText="Lastname">
-                        <h:outputText value="#{entity.lastName}" />
-                    </p:column>
-                </my:dataTable>
-            </h:form>
         </ui:define>
 
         <ui:define name="footer">

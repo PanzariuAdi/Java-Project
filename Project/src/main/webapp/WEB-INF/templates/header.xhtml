@@ -3,12 +3,35 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
     <h:head>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" type="text/javascript"></script>
     </h:head>
-    <h:outputLabel value="HEADER"/>
+
+    <p:menubar>
+        <p:menuitem>
+            <p:button outcome="/index" value="Home" />
+        </p:menuitem>
+
+        <p:menuitem>
+            <p:button outcome="/preferences" value="Preferences" />
+        </p:menuitem>
+
+        <p:menuitem>
+            <p:button outcome="/students" value="Students" />
+        </p:menuitem>
+
+        <p:menuitem>
+            <p:button outcome="/groups" value="Groups" />
+        </p:menuitem>
+
+        <p:menuitem>
+            <p:button outcome="/secretaries" value="Secretaries" />
+        </p:menuitem>
+    </p:menubar>
 </f:view>
 </html>

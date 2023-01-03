@@ -1,9 +1,7 @@
 package info.uaic.ro.project.views;
-
 import info.uaic.ro.project.beans.DataViewBean;
 import info.uaic.ro.project.entities.Student;
 import info.uaic.ro.project.services.StudentService;
-
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;

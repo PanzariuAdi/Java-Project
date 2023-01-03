@@ -28,8 +28,18 @@ public class Student extends Person implements Serializable {
     @Column(name = "year")
     private int year;
 
-    public Student(Integer id, String firstName, String lastName, String registrationNumber, float grade, int year) {
+    public Student(Integer id, String firstName, String lastName, int group, String registrationNumber, float grade, int year) {
         super(id, firstName, lastName);
+        this.group = group;
+        this.registrationNumber = registrationNumber;
+        this.grade = grade;
+        this.year = year;
+    }
+
+    public Student(String firstName, String lastName, int group, String registrationNumber, float grade, int year) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.group = group;
         this.registrationNumber = registrationNumber;
         this.grade = grade;
         this.year = year;
