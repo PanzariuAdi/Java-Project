@@ -34,11 +34,11 @@
             <h1>Preferences</h1>
             <h:form id="preferenceForm">
                <my:dataTable id="studentTable" dataView="#{preferenceView}">
-                  <p:column headerText="Student 1">
+                  <p:column headerText="Student 1" sortBy="#{entity.student1}" filterBy="#{entity.student1}">
                      <h:outputText value="#{entity.student1}" />
                   </p:column>
 
-                  <p:column headerText="Student 2">
+                  <p:column headerText="Student 2" sortBy="#{entity.student2}" filterBy="#{entity.student2}">
                      <h:outputText value="#{entity.student2}" />
                   </p:column>
                </my:dataTable>
@@ -84,6 +84,5 @@
          </ui:define>
 
       </ui:composition>
-
    </f:view>
 </html>

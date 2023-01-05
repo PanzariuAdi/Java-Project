@@ -37,27 +37,27 @@
             <h1>Students</h1>
             <h:form id="studentForm">
                 <my:dataTable id="studentTable" dataView="#{studentView}">
-                    <p:column headerText="Firstname">
+                    <p:column headerText="Firstname" sortBy="#{entity.firstName}" filterBy="#{entity.firstName}">
                         <h:outputText value="#{entity.firstName}"/>
                     </p:column>
 
-                    <p:column headerText="Lastname">
+                    <p:column headerText="Lastname" sortBy="#{entity.lastName}" filterBy="#{entity.lastName}">
                         <h:outputText value="#{entity.lastName}"/>
                     </p:column>
 
-                    <p:column headerText="Registration number">
+                    <p:column headerText="Registration number" sortBy="#{entity.registrationNumber}" filterBy="#{entity.registrationNumber}">
                         <h:outputText value="#{entity.registrationNumber}"/>
                     </p:column>
 
-                    <p:column headerText="Group id">
+                    <p:column headerText="Group id" sortBy="#{entity.group}" filterBy="#{entity.group}">
                         <h:outputText value="#{entity.group}"/>
                     </p:column>
 
-                    <p:column headerText="Grade">
+                    <p:column headerText="Grade" sortBy="#{entity.grade}" filterBy="#{entity.grade}">
                         <h:outputText value="#{entity.grade}"/>
                     </p:column>
 
-                    <p:column headerText="Year">
+                    <p:column headerText="Year" sortBy="#{entity.year}" filterBy="#{entity.year}">
                         <h:outputText value="#{entity.year}"/>
                     </p:column>
                 </my:dataTable>

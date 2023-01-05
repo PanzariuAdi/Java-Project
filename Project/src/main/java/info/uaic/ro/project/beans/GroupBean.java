@@ -1,5 +1,4 @@
 package info.uaic.ro.project.beans;
-
 import info.uaic.ro.project.entities.FacultyGroup;
 import info.uaic.ro.project.services.GroupService;
 import lombok.Getter;

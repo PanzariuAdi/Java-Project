@@ -3,14 +3,15 @@ import info.uaic.ro.project.beans.DataViewBean;
 import info.uaic.ro.project.entities.Student;
 import info.uaic.ro.project.services.StudentService;
 import javax.annotation.PostConstruct;
-import javax.enterprise.context.ApplicationScoped;
+import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.io.Serializable;
 import java.util.List;
 
 @Named
-@ApplicationScoped
-public class StudentView extends DataViewBean<Student, Integer> {
+@ViewScoped
+public class StudentView extends DataViewBean<Student, Integer> implements Serializable {
     @Inject
     private StudentService studentService;
 
@@ -23,4 +24,5 @@ public class StudentView extends DataViewBean<Student, Integer> {
         entities = studentService.findAll();
         return entities;
     }
+
 }

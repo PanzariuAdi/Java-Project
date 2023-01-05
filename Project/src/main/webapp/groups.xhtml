@@ -33,8 +33,8 @@
             <h1>Groups</h1>
             <h:form id="groupForm">
                 <my:dataTable id="groupTable" dataView="#{groupView}">
-                    <p:column headerText="Name">
-                        <h:outputText value="#{entity.name}" />
+                    <p:column headerText="Name" sortBy="#{entity.name}" filterBy="#{entity.name}">
+                        <h:outputText value="#{entity.name}"/>
                     </p:column>
                 </my:dataTable>
             </h:form>

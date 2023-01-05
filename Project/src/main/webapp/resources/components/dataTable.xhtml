@@ -22,11 +22,13 @@
                      rows="10"
                      paginator="true"
                      paginatorPosition="bottom"
+                     sortBy="#{entity.id}"
+                     sortMode="single"
                      paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
                      currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
                      rowsPerPageTemplate="5,10,25,{ShowAll|'All'}" >
 
-            <p:column headerText="Id">
+            <p:column headerText="Id" sortBy="#{entity.id}" filterBy="#{entity.id}" filterMatchMode="exact">
                 <h:outputText value="#{entity.id}" />
             </p:column>
 
