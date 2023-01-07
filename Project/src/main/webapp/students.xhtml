@@ -32,6 +32,15 @@
                                      onclick="PF('deleteStudentDlg').show()"
                     />
                 </p:menuitem>
+
+                <p:menuitem>
+                    <p:commandButton value="Update student"
+                                     type="button"
+                                     icon="pi pi-save"
+                                     process="@form"
+                                     onclick="PF('updateStudentDlg').show()"
+                    />
+                </p:menuitem>
             </p:menubar>
 
             <h1>Students</h1>
@@ -103,16 +112,64 @@
             </p:dialog>
 
             <p:dialog header="Delete student" id="deleteStudentDialog" widgetVar="deleteStudentDlg" minHeight="40" width="350" showEffect="fade" modal="true">
-                <span class="ui-float-label">
-                    <p:inputText id="studentID" value="#{studentBean.id}"/>
-                    <p:outputLabel for="@previous" value="ID"/>
-                </span>
+                <h:form id="deleteStudentForm">
+                    <span class="ui-float-label">
+                        <p:inputText id="studentID" value="#{studentBean.id}"/>
+                        <p:outputLabel for="@previous" value="Id"/>
+                    </span>
 
-                <p:commandButton value="Submit"
-                                 action="#{studentBean.deleteStudent}"
-                                 update=":studentForm">
-                </p:commandButton>
-            </p:dialog>
+                    <p:commandButton value="Submit"
+                                     action="#{studentBean.deleteStudent}"
+                                     update=":studentForm">
+                    </p:commandButton>
+
+                </h:form>
+           </p:dialog>
+
+            <p:dialog header="Update student" id="updateStudentDialog" widgetVar="updateStudentDlg" minHeight="40" width="350" showEffect="fade" modal="true">
+                <h:form>
+                    <span class="ui-float-label">
+                        <p:inputText id="studentID_update" value="#{studentBean.id}"/>
+                        <p:outputLabel for="@previous" value="ID"/>
+                    </span>
+
+                    <span class="ui-float-label">
+                        <p:inputText id="firstname_update" value="#{studentBean.firstName}"/>
+                        <p:outputLabel for="@previous" value="FirstName"/>
+                    </span>
+
+                    <span class="ui-float-label">
+                        <p:inputText id="lastname_update" value="#{studentBean.lastName}"/>
+                        <p:outputLabel for="@previous" value="LastName"/>
+                    </span>
+
+                    <span class="ui-float-label">
+                        <p:inputText id="reg_number_update" value="#{studentBean.registrationNumber}"/>
+                        <p:outputLabel for="@previous" value="Registration number"/>
+                    </span>
+
+                    <span class="ui-float-label">
+                        <p:inputText id="group_id_update" value="#{studentBean.group}"/>
+                        <p:outputLabel for="@previous" value="Group id"/>
+                    </span>
+
+                    <span class="ui-float-label">
+                        <p:inputText id="grade_update" value="#{studentBean.grade}"/>
+                        <p:outputLabel for="@previous" value="Grade"/>
+                    </span>
+
+                    <span class="ui-float-label">
+                        <p:inputText id="year_update" value="#{studentBean.year}"/>
+                        <p:outputLabel for="@previous" value="Year"/>
+                    </span>
+
+                    <p:commandButton value="Submit"
+                                     action="#{studentBean.updateStudent}"
+                                     update=":studentForm">
+                    </p:commandButton>
+
+                </h:form>
+           </p:dialog>
         </ui:define>
 
         <ui:define name="footer">

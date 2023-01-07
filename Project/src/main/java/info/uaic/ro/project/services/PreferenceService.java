@@ -30,5 +30,4 @@ public class PreferenceService implements Service<Preference> {
     public void remove(Preference preference) {
         preferenceRepository.remove(preference);
     }
-
 }

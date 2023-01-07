@@ -28,7 +28,7 @@
                      currentPageReportTemplate="{startRecord}-{endRecord} of {totalRecords} records"
                      rowsPerPageTemplate="5,10,25,{ShowAll|'All'}" >
 
-            <p:column headerText="Id" sortBy="#{entity.id}" filterBy="#{entity.id}" filterMatchMode="exact">
+            <p:column headerText="Id" sortBy="#{entity.id}" filterBy="#{entity.id}" sortOrder="asc" filterMatchMode="exact">
                 <h:outputText value="#{entity.id}" />
             </p:column>
 

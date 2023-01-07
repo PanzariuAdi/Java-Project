@@ -43,4 +43,16 @@ public class StudentBean implements Serializable {
         studentService.remove(student);
     }
 
+    public void updateStudent() {
+        Student student = new Student(
+                id,
+                firstName,
+                lastName,
+                group,
+                registrationNumber,
+                grade,
+                year
+        );
+        studentService.update(student);
+    }
 }

@@ -23,11 +23,17 @@ public class PreferenceBean implements Serializable {
     private int id;
 
     public void addPreference() {
-        preferenceService.create(new Preference(student1, student2));
+        Preference preference = new Preference(id, student1, student2);
+        preferenceService.create(preference);
     }
 
     public void deletePreference() {
         Preference preference = preferenceService.findById(id);
         preferenceService.remove(preference);
+    }
+
+    public void updatePreference() {
+        Preference preference = new Preference(id, student1, student2);
+        preferenceService.update(preference);
     }
 }

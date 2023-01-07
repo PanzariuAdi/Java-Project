@@ -24,8 +24,12 @@ public class GroupBean implements Serializable {
     }
 
     public void deleteGroup() {
-        FacultyGroup group = groupService.findById(id);
+        FacultyGroup group = new FacultyGroup(id, name);
         groupService.remove(group);
     }
 
+    public void updateGroup() {
+        FacultyGroup group = new FacultyGroup(id, name);
+        groupService.update(group);
+    }
 }

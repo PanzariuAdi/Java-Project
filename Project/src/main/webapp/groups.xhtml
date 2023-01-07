@@ -28,6 +28,14 @@
                                      icon="pi pi-save"
                                      onclick="PF('deleteGroupDlg').show()"/>
                 </p:menuitem>
+
+                <p:menuitem>
+                    <p:commandButton value="Update group"
+                                     type="button"
+                                     icon="pi pi-save"
+                                     onclick="PF('updateGroupDlg').show()"/>
+                </p:menuitem>
+
             </p:menubar>
 
             <h1>Groups</h1>
@@ -78,6 +86,26 @@
                     </p:commandButton>
                 </h:form>
             </p:dialog>
+
+            <p:dialog header="Delete group" id="updateGroupDialog" widgetVar="updateGroupDlg" minHeight="40" width="350" showEffect="fade" modal="true">
+                <h:form>
+                  <span class="ui-float-label">
+                     <p:inputText id="groupid_update" value="#{groupBean.id}" />
+                     <p:outputLabel for="@previous" value="Group id" />
+                  </span>
+
+                  <span class="ui-float-label">
+                     <p:inputText id="name_update" value="#{groupBean.name}" />
+                     <p:outputLabel for="@previous" value="Group name" />
+                  </span>
+
+                    <p:commandButton value="Submit"
+                                     action="#{groupBean.updateGroup}"
+                                     update=":groupForm" >
+                    </p:commandButton>
+                </h:form>
+            </p:dialog>
+
         </ui:define>
 
         <ui:define name="footer">

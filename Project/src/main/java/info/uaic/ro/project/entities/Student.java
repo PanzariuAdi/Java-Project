@@ -13,6 +13,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @NamedQueries({
         @NamedQuery(name = "Student.findAll", query = "SELECT s FROM Student s"),
+        @NamedQuery(name = "Student.findByRegistration", query = "SELECT s FROM Student s WHERE s.registrationNumber = :registrationNumber"),
 })
 @Table(name = "students")
 public class Student extends Person implements Serializable {
@@ -20,10 +21,10 @@ public class Student extends Person implements Serializable {
     private String registrationNumber;
 
     @Column(name = "group_id")
-    int group; // This will be set after the secretary makes the distribution.
+    int group;
 
     @Column(name = "grade")
-    private float grade; // From admission, to change to a better name
+    private float grade;
 
     @Column(name = "year")
     private int year;

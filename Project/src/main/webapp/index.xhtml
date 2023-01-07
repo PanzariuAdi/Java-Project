@@ -21,7 +21,24 @@
         </ui:define>
 
         <ui:define name="content">
+            <h:form>
+                <span class="ui-float-label">
+                    <p:inputText id="numberOfGroups" value="#{algorithmBean.numberOfGroups}"/>
+                    <p:outputLabel for="@previous" value="Number of groups" />
+                </span>
 
+                <p:commandButton value="Submit"
+                                 action="#{algorithmBean.calculateGroups}">
+                </p:commandButton>
+            </h:form>
+
+            <h:form>
+                <h1>Reset groups</h1>
+                <p:commandButton value="Reset"
+                                 action="#{algorithmBean.resetGroups}">
+
+                </p:commandButton>
+            </h:form>
         </ui:define>
 
         <ui:define name="footer">

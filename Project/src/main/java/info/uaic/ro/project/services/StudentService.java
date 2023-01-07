@@ -2,6 +2,8 @@ package info.uaic.ro.project.services;
 
 import info.uaic.ro.project.entities.Student;
 import info.uaic.ro.project.repositories.StudentRepository;
+
+import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import java.util.List;

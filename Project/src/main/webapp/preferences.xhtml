@@ -7,82 +7,111 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:my="http://xmlns.jcp.org/jsf/composite/components"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-   <f:view>
-      <ui:composition template="WEB-INF/templates/page.xhtml">
-         <ui:define name="header">
-            <ui:include src="WEB-INF/templates/header.xhtml" />
-         </ui:define>
+<f:view>
+   <ui:composition template="WEB-INF/templates/page.xhtml">
+      <ui:define name="header">
+         <ui:include src="WEB-INF/templates/header.xhtml" />
+      </ui:define>
 
-         <ui:define name="content">
-            <p:menubar>
-               <p:menuitem>
-                  <p:commandButton value="Add preference"
-                                   type="button"
-                                   icon="pi pi-save"
-                                   onclick="PF('addPreferenceDlg').show()"/>
-               </p:menuitem>
+      <ui:define name="content">
+         <p:menubar>
+            <p:menuitem>
+               <p:commandButton value="Add preference"
+                                type="button"
+                                icon="pi pi-save"
+                                onclick="PF('addPreferenceDlg').show()"/>
+            </p:menuitem>
 
-               <p:menuitem>
-                  <p:commandButton value="Delete preference"
-                                   type="button"
-                                   icon="pi pi-save"
-                                   onclick="PF('deletePreferenceDlg').show()"/>
-               </p:menuitem>
+            <p:menuitem>
+               <p:commandButton value="Delete preference"
+                                type="button"
+                                icon="pi pi-save"
+                                onclick="PF('deletePreferenceDlg').show()"/>
+            </p:menuitem>
 
-            </p:menubar>
+            <p:menuitem>
+               <p:commandButton value="Update preference"
+                                type="button"
+                                icon="pi pi-save"
+                                onclick="PF('updatePreferenceDlg').show()"/>
+            </p:menuitem>
+         </p:menubar>
 
-            <h1>Preferences</h1>
-            <h:form id="preferenceForm">
-               <my:dataTable id="studentTable" dataView="#{preferenceView}">
-                  <p:column headerText="Student 1" sortBy="#{entity.student1}" filterBy="#{entity.student1}">
-                     <h:outputText value="#{entity.student1}" />
-                  </p:column>
+         <h1>Preferences</h1>
+         <h:form id="preferenceForm">
+            <my:dataTable id="studentTable" dataView="#{preferenceView}">
+               <p:column headerText="Student 1" sortBy="#{entity.student1}" filterBy="#{entity.student1}">
+                  <h:outputText value="#{entity.student1}" />
+               </p:column>
 
-                  <p:column headerText="Student 2" sortBy="#{entity.student2}" filterBy="#{entity.student2}">
-                     <h:outputText value="#{entity.student2}" />
-                  </p:column>
-               </my:dataTable>
-            </h:form>
+               <p:column headerText="Student 2" sortBy="#{entity.student2}" filterBy="#{entity.student2}">
+                  <h:outputText value="#{entity.student2}" />
+               </p:column>
+            </my:dataTable>
+         </h:form>
 
-            <p:dialog header="Add preference" id="addPreferenceDialog" widgetVar="addPreferenceDlg" minHeight="40" width="350" showEffect="fade" modal="true">
-               <h:form>
-               <span class="ui-float-label">
-                  <p:inputText id="student1" value="#{preferenceBean.student1}" />
-                  <p:outputLabel for="@previous" value="Student 1" />
-               </span>
-
+         <p:dialog header="Add preference" id="addPreferenceDialog" widgetVar="addPreferenceDlg" minHeight="40" width="350" showEffect="fade" modal="true">
+            <h:form>
                   <span class="ui-float-label">
-                  <p:inputText id="student2" value="#{preferenceBean.student2}" />
-                  <p:outputLabel for="@previous" value="Student 2" />
-               </span>
-
-                  <p:commandButton value="Submit"
-                                   action="#{preferenceBean.addPreference}"
-                                   update=":preferenceForm" >
-                  </p:commandButton>
-               </h:form>
-            </p:dialog>
-
-            <p:dialog header="Delete preference" id="deletePreferenceDialog" widgetVar="deletePreferenceDlg" minHeight="40" width="350" showEffect="fade" modal="true">
-               <h:form>
-                  <span class="ui-float-label">
-                     <p:inputText id="preferenceid" value="#{preferenceBean.id}" />
-                     <p:outputLabel for="@previous" value="Preference id" />
+                     <p:inputText id="student1" value="#{preferenceBean.student1}" />
+                     <p:outputLabel for="@previous" value="Student 1" />
                   </span>
 
-                  <p:commandButton value="Submit"
-                                   action="#{preferenceBean.deletePreference}"
-                                   update=":preferenceForm" >
-                  </p:commandButton>
-               </h:form>
-            </p:dialog>
+               <span class="ui-float-label">
+                     <p:inputText id="student2" value="#{preferenceBean.student2}" />
+                     <p:outputLabel for="@previous" value="Student 2" />
+                  </span>
 
-         </ui:define>
+               <p:commandButton value="Submit"
+                                action="#{preferenceBean.addPreference}"
+                                update=":preferenceForm" >
+               </p:commandButton>
+            </h:form>
+         </p:dialog>
 
-         <ui:define name="footer">
-            <ui:include src="WEB-INF/templates/footer.xhtml" />
-         </ui:define>
+         <p:dialog header="Delete preference" id="deletePreferenceDialog" widgetVar="deletePreferenceDlg" minHeight="40" width="350" showEffect="fade" modal="true">
+            <h:form>
+              <span class="ui-float-label">
+                <p:inputText id="preferenceid" value="#{preferenceBean.id}" />
+                <p:outputLabel for="@previous" value="Preference id" />
+              </span>
 
-      </ui:composition>
-   </f:view>
+               <p:commandButton value="Submit"
+                                action="#{preferenceBean.deletePreference}"
+                                update=":preferenceForm" >
+               </p:commandButton>
+            </h:form>
+         </p:dialog>
+
+         <p:dialog header="Update preference" id="updatePreferenceDialog" widgetVar="updatePreferenceDlg" minHeight="40" width="350" showEffect="fade" modal="true">
+            <h:form>
+               <span class="ui-float-label">
+                     <p:inputText value="#{preferenceBean.id}"/>
+                     <p:outputLabel for="@previous" value="Preference id" />
+               </span>
+
+               <span class="ui-float-label">
+                     <p:inputText value="#{preferenceBean.student1}" />
+                     <p:outputLabel for="@previous" value="Student 1" />
+               </span>
+
+               <span class="ui-float-label">
+                     <p:inputText value="#{preferenceBean.student2}" />
+                     <p:outputLabel for="@previous" value="Student 2" />
+               </span>
+
+               <p:commandButton value="Submit"
+                                action="#{preferenceBean.updatePreference}"
+                                update=":preferenceForm" >
+               </p:commandButton>
+            </h:form>
+         </p:dialog>
+      </ui:define>
+
+      <ui:define name="footer">
+         <ui:include src="WEB-INF/templates/footer.xhtml" />
+      </ui:define>
+
+   </ui:composition>
+</f:view>
 </html>

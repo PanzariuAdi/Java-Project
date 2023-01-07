@@ -26,8 +26,12 @@ public class SecretaryBean implements Serializable {
     }
 
     public void deleteSecretary() {
-       Secretary secretary = secretaryService.findById(id);
+       Secretary secretary = new Secretary(id, firstName, lastName);
        secretaryService.remove(secretary);
     }
 
+    public void updateSecretary() {
+        Secretary secretary = new Secretary(id, firstName, lastName);
+        secretaryService.update(secretary);
+    }
 }
