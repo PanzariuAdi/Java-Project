@@ -19,21 +19,21 @@
                     <p:commandButton value="Add group"
                                      type="button"
                                      icon="pi pi-save"
-                                     onclick="PF('addGroupDlg').show()"/>
+                                     onclick="PF('addDialog').show()"/>
                 </p:menuitem>
 
                 <p:menuitem>
                     <p:commandButton value="Delete group"
                                      type="button"
                                      icon="pi pi-save"
-                                     onclick="PF('deleteGroupDlg').show()"/>
+                                     onclick="PF('deleteDialog').show()"/>
                 </p:menuitem>
 
                 <p:menuitem>
                     <p:commandButton value="Update group"
                                      type="button"
                                      icon="pi pi-save"
-                                     onclick="PF('updateGroupDlg').show()"/>
+                                     onclick="PF('updateDialog').show()"/>
                 </p:menuitem>
 
             </p:menubar>
@@ -59,53 +59,57 @@
                 </p:commandButton>
             </h:form>
 
-            <p:dialog header="Add group" id="addGroupDialog" widgetVar="addGroupDlg" minHeight="40" width="350" showEffect="fade" modal="true">
-                <h:form>
-                    <span class="ui-float-label">
-                        <p:inputText id="firstname" value="#{groupBean.name}" />
-                        <p:outputLabel for="@previous" value="Name" />
-                    </span>
+            <p:dialog header="Add group" widgetVar="addDialog" minHeight="40" width="350" showEffect="fade" modal="true">
+                <div class="card">
+                    <h:form>
+                        <div class="ui-fluid">
+                            <h:panelGrid columns="1" cellpadding="5">
+                                <p:inputText placeholder="Firstname" value="#{groupBean.name}" />
 
-                    <p:commandButton value="Submit"
-                                     action="#{groupBean.addGroup}"
-                                     update=":groupForm" >
-                    </p:commandButton>
-                </h:form>
-            </p:dialog>
+                                <p:commandButton value="Submit"
+                                                 action="#{groupBean.addGroup}"
+                                                 update=":groupForm" >
+                                </p:commandButton>
+                            </h:panelGrid>
+                        </div>
+                    </h:form>
+                </div>
+           </p:dialog>
 
-            <p:dialog header="Delete group" id="deleteGroupDialog" widgetVar="deleteGroupDlg" minHeight="40" width="350" showEffect="fade" modal="true">
-                <h:form>
-                  <span class="ui-float-label">
-                     <p:inputText id="groupid" value="#{groupBean.id}" />
-                     <p:outputLabel for="@previous" value="Group id" />
-                  </span>
+            <p:dialog header="Delete group" widgetVar="deleteDialog" minHeight="40" width="350" showEffect="fade" modal="true">
+                <div class="card">
+                    <h:form>
+                        <div class="ui-fluid">
+                            <h:panelGrid columns="1" cellpadding="5">
+                                <p:inputText placeholder="Group id" value="#{groupBean.id}" />
 
-                    <p:commandButton value="Submit"
-                                     action="#{groupBean.deleteGroup}"
-                                     update=":groupForm" >
-                    </p:commandButton>
-                </h:form>
-            </p:dialog>
+                                <p:commandButton value="Submit"
+                                                 action="#{groupBean.deleteGroup}"
+                                                 update=":groupForm" >
+                                </p:commandButton>
+                            </h:panelGrid>
+                        </div>
+                    </h:form>
+                </div>
+           </p:dialog>
 
-            <p:dialog header="Delete group" id="updateGroupDialog" widgetVar="updateGroupDlg" minHeight="40" width="350" showEffect="fade" modal="true">
-                <h:form>
-                  <span class="ui-float-label">
-                     <p:inputText id="groupid_update" value="#{groupBean.id}" />
-                     <p:outputLabel for="@previous" value="Group id" />
-                  </span>
+            <p:dialog header="Update group" widgetVar="updateDialog" minHeight="40" width="350" showEffect="fade" modal="true">
+                <div class="card">
+                    <h:form>
+                        <div class="ui-fluid">
+                            <h:panelGrid columns="1" cellpadding="5">
+                                <p:inputText placeholder="Group id" value="#{groupBean.id}" />
+                                <p:inputText placeholder="Name" value="#{groupBean.name}" />
 
-                  <span class="ui-float-label">
-                     <p:inputText id="name_update" value="#{groupBean.name}" />
-                     <p:outputLabel for="@previous" value="Group name" />
-                  </span>
-
-                    <p:commandButton value="Submit"
-                                     action="#{groupBean.updateGroup}"
-                                     update=":groupForm" >
-                    </p:commandButton>
-                </h:form>
-            </p:dialog>
-
+                                <p:commandButton value="Submit"
+                                                 action="#{groupBean.updateGroup}"
+                                                 update=":groupForm" >
+                                </p:commandButton>
+                            </h:panelGrid>
+                        </div>
+                    </h:form>
+                </div>
+           </p:dialog>
         </ui:define>
 
         <ui:define name="footer">

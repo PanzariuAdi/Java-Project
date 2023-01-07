@@ -20,7 +20,7 @@
                                      type="button"
                                      icon="pi pi-save"
                                      process="@form"
-                                     onclick="PF('addStudentDlg').show()"
+                                     onclick="PF('addDialog').show()"
                     />
                 </p:menuitem>
 
@@ -29,7 +29,7 @@
                                      type="button"
                                      icon="pi pi-save"
                                      process="@form"
-                                     onclick="PF('deleteStudentDlg').show()"
+                                     onclick="PF('deleteDialog').show()"
                     />
                 </p:menuitem>
 
@@ -38,7 +38,7 @@
                                      type="button"
                                      icon="pi pi-save"
                                      process="@form"
-                                     onclick="PF('updateStudentDlg').show()"
+                                     onclick="PF('updateDialog').show()"
                     />
                 </p:menuitem>
             </p:menubar>
@@ -72,103 +72,66 @@
                 </my:dataTable>
             </h:form>
 
-            <p:dialog header="Add student" id="addStudentDialog" widgetVar="addStudentDlg" minHeight="40" width="350" showEffect="fade" modal="true">
-                <h:form id="addStudentForm">
-                    <span class="ui-float-label">
-                        <p:inputText id="firstname" value="#{studentBean.firstName}"/>
-                        <p:outputLabel for="@previous" value="FirstName"/>
-                    </span>
+            <p:dialog header="Add student" widgetVar="addDialog" minHeight="40" width="350" showEffect="fade" modal="true">
+                <div class="card">
+                    <h:form>
+                        <div class="ui-fluid">
+                            <h:panelGrid columns="1" cellpadding="5">
+                                <p:inputText placeholder="Firstname" value="#{studentBean.firstName}"/>
+                                <p:inputText placeholder="Lastname" value="#{studentBean.lastName}"/>
+                                <p:inputText placeholder="Registration number" value="#{studentBean.registrationNumber}"/>
+                                <p:inputText placeholder="Group id" value="#{studentBean.group}"/>
+                                <p:inputText placeholder="Grade" value="#{studentBean.grade}"/>
+                                <p:inputText placeholder="Year" value="#{studentBean.year}"/>
 
-                    <span class="ui-float-label">
-                        <p:inputText id="lastname" value="#{studentBean.lastName}"/>
-                        <p:outputLabel for="@previous" value="LastName"/>
-                    </span>
-
-                    <span class="ui-float-label">
-                        <p:inputText id="reg_number" value="#{studentBean.registrationNumber}"/>
-                        <p:outputLabel for="@previous" value="Registration number"/>
-                    </span>
-
-                    <span class="ui-float-label">
-                        <p:inputText id="group_id" value="#{studentBean.group}"/>
-                        <p:outputLabel for="@previous" value="Group id"/>
-                    </span>
-
-                    <span class="ui-float-label">
-                        <p:inputText id="grade" value="#{studentBean.grade}"/>
-                        <p:outputLabel for="@previous" value="Group id"/>
-                    </span>
-
-                    <span class="ui-float-label">
-                        <p:inputText id="year" value="#{studentBean.year}"/>
-                        <p:outputLabel for="@previous" value="Year"/>
-                    </span>
-
-                    <p:commandButton value="Submit"
-                                     action="#{studentBean.addStudent}"
-                                     update=":studentForm">
-                    </p:commandButton>
-                </h:form>
+                                <p:commandButton value="Submit"
+                                                 action="#{studentBean.addStudent}"
+                                                 update=":studentForm">
+                                </p:commandButton>
+                            </h:panelGrid>
+                        </div>
+                    </h:form>
+                </div>
             </p:dialog>
 
-            <p:dialog header="Delete student" id="deleteStudentDialog" widgetVar="deleteStudentDlg" minHeight="40" width="350" showEffect="fade" modal="true">
-                <h:form id="deleteStudentForm">
-                    <span class="ui-float-label">
-                        <p:inputText id="studentID" value="#{studentBean.id}"/>
-                        <p:outputLabel for="@previous" value="Id"/>
-                    </span>
+            <p:dialog header="Delete student" widgetVar="deleteDialog" minHeight="40" width="350" showEffect="fade" modal="true">
+                <div class="card">
+                    <h:form>
+                        <div class="ui-fluid">
+                            <h:panelGrid columns="1" cellpadding="5">
+                                <p:inputText placeholder="Student id" value="#{studentBean.id}"/>
 
-                    <p:commandButton value="Submit"
-                                     action="#{studentBean.deleteStudent}"
-                                     update=":studentForm">
-                    </p:commandButton>
-
-                </h:form>
+                                <p:commandButton value="Submit"
+                                                 action="#{studentBean.deleteStudent}"
+                                                 update=":studentForm">
+                                </p:commandButton>
+                            </h:panelGrid>
+                        </div>
+                    </h:form>
+                </div>
            </p:dialog>
 
-            <p:dialog header="Update student" id="updateStudentDialog" widgetVar="updateStudentDlg" minHeight="40" width="350" showEffect="fade" modal="true">
-                <h:form>
-                    <span class="ui-float-label">
-                        <p:inputText id="studentID_update" value="#{studentBean.id}"/>
-                        <p:outputLabel for="@previous" value="ID"/>
-                    </span>
+            <p:dialog header="Update student" widgetVar="updateDialog" minHeight="80" width="350" showEffect="fade" modal="true">
+                <div class="card">
+                    <h:form>
+                        <div class="ui-fluid">
+                            <h:panelGrid columns="1" cellpadding="5">
+                                <p:inputText placeholder="Id" value="#{studentBean.id}"/>
+                                <p:inputText placeholder="Firstname" value="#{studentBean.firstName}"/>
+                                <p:inputText placeholder="Lastname" value="#{studentBean.lastName}"/>
+                                <p:inputText placeholder="Registration number" value="#{studentBean.registrationNumber}"/>
+                                <p:inputText placeholder="Group id" value="#{studentBean.group}"/>
+                                <p:inputText placeholder="Grade" value="#{studentBean.grade}"/>
+                                <p:inputText placeholder="Year" value="#{studentBean.year}"/>
 
-                    <span class="ui-float-label">
-                        <p:inputText id="firstname_update" value="#{studentBean.firstName}"/>
-                        <p:outputLabel for="@previous" value="FirstName"/>
-                    </span>
-
-                    <span class="ui-float-label">
-                        <p:inputText id="lastname_update" value="#{studentBean.lastName}"/>
-                        <p:outputLabel for="@previous" value="LastName"/>
-                    </span>
-
-                    <span class="ui-float-label">
-                        <p:inputText id="reg_number_update" value="#{studentBean.registrationNumber}"/>
-                        <p:outputLabel for="@previous" value="Registration number"/>
-                    </span>
-
-                    <span class="ui-float-label">
-                        <p:inputText id="group_id_update" value="#{studentBean.group}"/>
-                        <p:outputLabel for="@previous" value="Group id"/>
-                    </span>
-
-                    <span class="ui-float-label">
-                        <p:inputText id="grade_update" value="#{studentBean.grade}"/>
-                        <p:outputLabel for="@previous" value="Grade"/>
-                    </span>
-
-                    <span class="ui-float-label">
-                        <p:inputText id="year_update" value="#{studentBean.year}"/>
-                        <p:outputLabel for="@previous" value="Year"/>
-                    </span>
-
-                    <p:commandButton value="Submit"
-                                     action="#{studentBean.updateStudent}"
-                                     update=":studentForm">
-                    </p:commandButton>
-
-                </h:form>
+                                <p:commandButton value="Submit"
+                                                 action="#{studentBean.updateStudent}"
+                                                 update=":studentForm">
+                                </p:commandButton>
+                            </h:panelGrid>
+                       </div>
+                    </h:form>
+                </div>
            </p:dialog>
         </ui:define>
 

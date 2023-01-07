@@ -21,24 +21,24 @@
         </ui:define>
 
         <ui:define name="content">
-            <h:form>
-                <span class="ui-float-label">
-                    <p:inputText id="numberOfGroups" value="#{algorithmBean.numberOfGroups}"/>
-                    <p:outputLabel for="@previous" value="Number of groups" />
-                </span>
+            <div class="card">
+                <h:panelGrid columns="1" cellpadding="5">
+                    <h:form>
+                        <div class="ui-fluid">
+                            <h1>Number of groups</h1>
+                            <p:inputText placeholder="Number of groups" value="#{algorithmBean.numberOfGroups}" style="margin-bottom: 5px"/>
+                            <p:commandButton value="Generate groups" action="#{algorithmBean.calculateGroups}"></p:commandButton>
+                        </div>
+                    </h:form>
 
-                <p:commandButton value="Submit"
-                                 action="#{algorithmBean.calculateGroups}">
-                </p:commandButton>
-            </h:form>
-
-            <h:form>
-                <h1>Reset groups</h1>
-                <p:commandButton value="Reset"
-                                 action="#{algorithmBean.resetGroups}">
-
-                </p:commandButton>
-            </h:form>
+                    <h:form>
+                        <div class="ui-fluid">
+                            <h1>Reset groups</h1>
+                            <p:commandButton value="Reset groups" action="#{algorithmBean.resetGroups}"></p:commandButton>
+                        </div>
+                    </h:form>
+                </h:panelGrid>
+            </div>
         </ui:define>
 
         <ui:define name="footer">
