@@ -8,105 +8,112 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <f:view>
-    <ui:composition template="WEB-INF/templates/page.xhtml">
+    <ui:composition template="../WEB-INF/templates/page.xhtml">
         <ui:define name="header">
-            <ui:include src="WEB-INF/templates/header.xhtml" />
+            <ui:include src="../WEB-INF/templates/header.xhtml" />
         </ui:define>
 
         <ui:define name="content">
             <p:menubar>
                 <p:menuitem>
-                    <p:commandButton value="Add secretary"
+                    <p:commandButton value="Add group"
                                      type="button"
                                      icon="pi pi-save"
                                      onclick="PF('addDialog').show()"/>
                 </p:menuitem>
 
                 <p:menuitem>
-                    <p:commandButton value="Delete secretary"
+                    <p:commandButton value="Delete group"
                                      type="button"
                                      icon="pi pi-save"
                                      onclick="PF('deleteDialog').show()"/>
                 </p:menuitem>
 
                 <p:menuitem>
-                    <p:commandButton value="Update secretary"
+                    <p:commandButton value="Update group"
                                      type="button"
                                      icon="pi pi-save"
                                      onclick="PF('updateDialog').show()"/>
                 </p:menuitem>
+
             </p:menubar>
 
-            <h1>Secretaries</h1>
-            <h:form id="secretaryForm">
-                <my:dataTable id="secretaryTable" dataView="#{secretaryView}">
-                    <p:column headerText="Firstname" sortBy="#{entity.firstName}" filterBy="#{entity.firstName}">
-                        <h:outputText value="#{entity.firstName}" />
-                    </p:column>
-
-                    <p:column headerText="Lastname" sortBy="#{entity.lastName}" filterBy="#{entity.lastName}">
-                        <h:outputText value="#{entity.lastName}" />
+            <h1>Groups</h1>
+            <h:form id="groupForm">
+                <my:dataTable id="groupTable" dataView="#{groupView}">
+                    <p:column headerText="Name" sortBy="#{entity.name}" filterBy="#{entity.name}">
+                        <h:outputText value="#{entity.name}"/>
                     </p:column>
                 </my:dataTable>
             </h:form>
 
-            <p:dialog header="Add secretary" widgetVar="addDialog" minHeight="40" width="350" showEffect="fade" modal="true">
+            <h:form>
+                <span class="ui-float-label">
+                    <p:inputText id="groupName" value="#{groupBean.name}" />
+                    <p:outputLabel for="@previous" value="Name" />
+                </span>
+
+                <p:commandButton value="Submit"
+                                 action="#{groupBean.addGroup}"
+                                 update=":groupForm" >
+                </p:commandButton>
+            </h:form>
+
+            <p:dialog header="Add group" widgetVar="addDialog" minHeight="40" width="350" showEffect="fade" modal="true">
                 <div class="card">
                     <h:form>
                         <div class="ui-fluid">
                             <h:panelGrid columns="1" cellpadding="5">
-                                <p:inputText placeholder="Firstname" value="#{secretaryBean.firstName}" />
-                                <p:inputText placeholder="Lastname" value="#{secretaryBean.lastName}" />
+                                <p:inputText placeholder="Firstname" value="#{groupBean.name}" />
 
                                 <p:commandButton value="Submit"
-                                                 action="#{secretaryBean.addSecretary}"
-                                                 update=":secretaryForm" >
+                                                 action="#{groupBean.addGroup}"
+                                                 update=":groupForm" >
                                 </p:commandButton>
                             </h:panelGrid>
                         </div>
                     </h:form>
                 </div>
-            </p:dialog>
+           </p:dialog>
 
-            <p:dialog header="Delete secretary" widgetVar="deleteDialog" minHeight="40" width="350" showEffect="fade" modal="true">
+            <p:dialog header="Delete group" widgetVar="deleteDialog" minHeight="40" width="350" showEffect="fade" modal="true">
                 <div class="card">
                     <h:form>
                         <div class="ui-fluid">
                             <h:panelGrid columns="1" cellpadding="5">
-                                <p:inputText placeholder="Secretary id" value="#{secretaryBean.id}" />
+                                <p:inputText placeholder="Group id" value="#{groupBean.id}" />
 
                                 <p:commandButton value="Submit"
-                                                 action="#{secretaryBean.deleteSecretary}"
-                                                 update=":secretaryForm" >
+                                                 action="#{groupBean.deleteGroup}"
+                                                 update=":groupForm" >
                                 </p:commandButton>
                             </h:panelGrid>
                         </div>
                     </h:form>
                 </div>
-            </p:dialog>
+           </p:dialog>
 
-            <p:dialog header="Update secretary" widgetVar="updateDialog" minHeight="40" width="350" showEffect="fade" modal="true">
+            <p:dialog header="Update group" widgetVar="updateDialog" minHeight="40" width="350" showEffect="fade" modal="true">
                 <div class="card">
                     <h:form>
                         <div class="ui-fluid">
                             <h:panelGrid columns="1" cellpadding="5">
-                                <p:inputText placeholder="Secretary id" value="#{secretaryBean.id}" />
-                                <p:inputText placeholder="Firstname" value="#{secretaryBean.firstName}" />
-                                <p:inputText placeholder="Lastname" value="#{secretaryBean.lastName}" />
+                                <p:inputText placeholder="Group id" value="#{groupBean.id}" />
+                                <p:inputText placeholder="Name" value="#{groupBean.name}" />
 
                                 <p:commandButton value="Submit"
-                                                 action="#{secretaryBean.updateSecretary}"
-                                                 update=":secretaryForm" >
+                                                 action="#{groupBean.updateGroup}"
+                                                 update=":groupForm" >
                                 </p:commandButton>
                             </h:panelGrid>
                         </div>
                     </h:form>
                 </div>
-            </p:dialog>
+           </p:dialog>
         </ui:define>
 
         <ui:define name="footer">
-            <ui:include src="WEB-INF/templates/footer.xhtml" />
+            <ui:include src="../WEB-INF/templates/footer.xhtml" />
         </ui:define>
     </ui:composition>
 </f:view>

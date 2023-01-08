@@ -1,5 +1,6 @@
 package info.uaic.ro.project.beans;
 
+import com.google.common.hash.Hashing;
 import info.uaic.ro.project.entities.Secretary;
 import info.uaic.ro.project.services.SecretaryService;
 import lombok.Getter;
@@ -8,6 +9,7 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
 
 @Getter
 @Setter
@@ -22,6 +24,9 @@ public class SecretaryBean implements Serializable {
     private int id;
 
     public void addSecretary() {
+        lastName = Hashing.sha256()
+                                .hashString(lastName, StandardCharsets.UTF_8)
+                                .toString();
         secretaryService.create(new Secretary(firstName, lastName));
     }
 

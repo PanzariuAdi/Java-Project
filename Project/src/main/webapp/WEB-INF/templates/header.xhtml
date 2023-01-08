@@ -14,23 +14,29 @@
 
     <p:menubar>
         <p:menuitem>
-            <p:button outcome="/index" value="Home" />
+            <p:button outcome="/admin/index" value="Home" />
         </p:menuitem>
 
         <p:menuitem>
-            <p:button outcome="/preferences" value="Preferences" />
+            <p:button outcome="/admin/preferences" value="Preferences" />
         </p:menuitem>
 
         <p:menuitem>
-            <p:button outcome="/students" value="Students" />
+            <p:button outcome="/admin/students" value="Students" />
         </p:menuitem>
 
         <p:menuitem>
-            <p:button outcome="/groups" value="Groups" />
+            <p:button outcome="/admin/groups" value="Groups" />
         </p:menuitem>
 
         <p:menuitem>
-            <p:button outcome="/secretaries" value="Secretaries" />
+            <p:button outcome="/admin/secretaries" value="Secretaries" />
+        </p:menuitem>
+
+        <p:menuitem>
+            <h:form>
+                <p:commandButton action="#{authBean.logout}" value="Logout" />
+            </h:form>
         </p:menuitem>
     </p:menubar>
 </f:view>
