@@ -6,8 +6,8 @@ import info.uaic.ro.project.entities.Student;
 import info.uaic.ro.project.services.GroupService;
 import info.uaic.ro.project.services.PreferenceService;
 import info.uaic.ro.project.services.StudentService;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
@@ -18,8 +18,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-@Getter
-@Setter
+@Data
 @Named
 @ApplicationScoped
 public class AlgorithmBean implements Serializable {
@@ -111,12 +110,12 @@ public class AlgorithmBean implements Serializable {
     }
 
     private void assign(Student student, FacultyGroup group) {
-        incrementGroup(group);
+        incrementGroupEffective(group);
         student.setGroup(group.getId());
         studentService.update(student);
     }
 
-    private void incrementGroup(FacultyGroup group) {
+    private void incrementGroupEffective(FacultyGroup group) {
         groupsEffective.put(group, groupsEffective.get(group) + 1);
     }
 

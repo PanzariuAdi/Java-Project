@@ -17,10 +17,4 @@ public class StudentRepository extends DataRepository<Student> {
     public StudentRepository() {
         super(Student.class);
     }
-
-    public Student findByRegistration(String registration) {
-        return (Student) entityManager.createNamedQuery("Student.findByRegistration")
-                .setParameter("registrationNumber", registration)
-                .getSingleResult();
-    }
 }

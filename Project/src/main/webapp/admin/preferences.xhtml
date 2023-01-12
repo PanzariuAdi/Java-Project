@@ -37,6 +37,8 @@
                 </p:menuitem>
             </p:menubar>
 
+            <p:growl id="msg"/>
+
             <h1>Preferences</h1>
             <h:form id="preferenceForm">
                 <my:dataTable id="studentTable" dataView="#{preferenceView}">
@@ -54,13 +56,17 @@
                 <div class="card">
                     <h:form>
                         <div class="ui-fluid">
-                            <h:panelGrid columns="1" cellpadding="5">
-                                <p:inputText placeholder="Student 1 registration number" value="#{preferenceBean.student1}" />
-                                <p:inputText placeholder="Student 2 registration number" value="#{preferenceBean.student2}" />
+                            <h:panelGrid id="add_grid" columns="1" cellpadding="5">
+                                <p:inputText id="add_student1" required="true" requiredMessage="This field is mandatory !" placeholder="Student 1 registration" value="#{preferenceBean.student1}" />
+                                <p:message for="add_student1" display="text"/>
+
+                                <p:inputText id="add_student2" required="true" requiredMessage="This field is mandatory !" placeholder="Student 2 registration" value="#{preferenceBean.student2}" />
+                                <p:message for="add_student2" display="text"/>
 
                                 <p:commandButton value="Submit"
                                                  action="#{preferenceBean.addPreference}"
-                                                 update=":preferenceForm" >
+                                                 update=":preferenceForm add_grid" >
+                                    <p:ajax listener="#{preferenceBean.addPreference}" update="msg"></p:ajax>
                                 </p:commandButton>
                             </h:panelGrid>
                         </div>
@@ -72,12 +78,13 @@
                 <div class="card">
                     <h:form>
                         <div class="ui-fluid">
-                            <h:panelGrid columns="1" cellpadding="5">
-                                <p:inputText placeholder="Preference id" value="#{preferenceBean.id}" />
+                            <h:panelGrid id="delete_grid" columns="1" cellpadding="5">
+                                <p:inputText id="delete_id" required="true" requiredMessage="This field is mandatory !"  placeholder="Preference id" value="#{preferenceBean.id}" />
+                                <p:message for="delete_id" display="text"/>
 
                                 <p:commandButton value="Submit"
                                                  action="#{preferenceBean.deletePreference}"
-                                                 update=":preferenceForm" >
+                                                 update=":preferenceForm delete_grid" >
                                 </p:commandButton>
                             </h:panelGrid>
                         </div>
@@ -89,14 +96,19 @@
                 <div class="card">
                     <h:form>
                         <div class="ui-fluid">
-                            <h:panelGrid columns="1" cellpadding="5">
-                                <p:inputText placeholder="Preference id" value="#{preferenceBean.id}"/>
-                                <p:inputText placeholder="Student 1" value="#{preferenceBean.student1}" />
-                                <p:inputText placeholder="Student 2" value="#{preferenceBean.student2}" />
+                            <h:panelGrid id="update_grid" columns="1" cellpadding="5">
+                                <p:inputText id="update_pref_id" required="true" requiredMessage="This field is mandatory !" placeholder="Preference id" value="#{preferenceBean.id}"/>
+                                <p:message for="update_pref_id" display="text"/>
+
+                                <p:inputText id="update_student1" required="true" requiredMessage="This field is mandatory !" placeholder="Student 1" value="#{preferenceBean.student1}" />
+                                <p:message for="update_student1" display="text"/>
+
+                                <p:inputText id="update_student2" required="true" requiredMessage="This field is mandatory !" placeholder="Student 2" value="#{preferenceBean.student2}" />
+                                <p:message for="update_student2" display="text"/>
 
                                 <p:commandButton value="Submit"
                                                  action="#{preferenceBean.updatePreference}"
-                                                 update=":preferenceForm" >
+                                                 update=":preferenceForm update_grid" >
                                 </p:commandButton>
                             </h:panelGrid>
                         </div>
