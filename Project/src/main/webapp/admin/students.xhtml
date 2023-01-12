@@ -76,17 +76,31 @@
                 <div class="card">
                     <h:form>
                         <div class="ui-fluid">
-                            <h:panelGrid columns="1" cellpadding="5">
-                                <p:inputText placeholder="Firstname" value="#{studentBean.firstName}"/>
-                                <p:inputText placeholder="Lastname" value="#{studentBean.lastName}"/>
-                                <p:inputText placeholder="Registration number" value="#{studentBean.registrationNumber}"/>
-                                <p:inputText placeholder="Group id" value="#{studentBean.group}"/>
-                                <p:inputText placeholder="Grade" value="#{studentBean.grade}"/>
-                                <p:inputText placeholder="Year" value="#{studentBean.year}"/>
+                            <h:panelGrid id="add_student_grid" columns="1" cellpadding="5">
+                                <p:inputText id="add_firstname" required="true" requiredMessage="Firstname is mandatory !" placeholder="Firstname" value="#{studentBean.firstName}"/>
+                                <p:message for="add_firstname" display="text"/>
+
+                                <p:inputText id="add_lastname" required="true" requiredMessage="Lastname is mandatory !" placeholder="Lastname" value="#{studentBean.lastName}"/>
+                                <p:message for="add_lastname" display="text"/>
+
+                                <p:inputText id="add_registration" required="true" requiredMessage="Registration is mandatory !" placeholder="Registration number" value="#{studentBean.registrationNumber}"/>
+                                <p:message for="add_registration" display="text"/>
+
+                                <label for="add_group">Group</label>
+                                <p:inputText id="add_group" required="true" requiredMessage="Group is mandatory !" placeholder="Group id" value="#{studentBean.group}"/>
+                                <p:message for="add_group" display="text"/>
+
+                                <label for="add_grade">Grade</label>
+                                <p:inputText id="add_grade" required="true" requiredMessage="Grade is mandatory !" placeholder="Grade" value="#{studentBean.grade}"/>
+                                <p:message for="add_grade" display="text"/>
+
+                                <label for="add_year">Year</label>
+                                <p:inputText id="add_year" required="true" requiredMessage="Year is mandatory !" placeholder="Year" value="#{studentBean.year}"/>
+                                <p:message for="add_year" display="text"/>
 
                                 <p:commandButton value="Submit"
                                                  action="#{studentBean.addStudent}"
-                                                 update=":studentForm">
+                                                 update=":studentForm add_student_grid">
                                 </p:commandButton>
                             </h:panelGrid>
                         </div>
@@ -98,12 +112,14 @@
                 <div class="card">
                     <h:form>
                         <div class="ui-fluid">
-                            <h:panelGrid columns="1" cellpadding="5">
-                                <p:inputText placeholder="Student id" value="#{studentBean.id}"/>
+                            <h:panelGrid id="delete_student_grid" columns="1" cellpadding="5">
+                                <label for="delete_id">Id</label>
+                                <p:inputText id="delete_id" required="true" requiredMessage="Id is mandatory !" placeholder="Student id" value="#{studentBean.id}"/>
+                                <p:message for="delete_id" display="text"/>
 
                                 <p:commandButton value="Submit"
                                                  action="#{studentBean.deleteStudent}"
-                                                 update=":studentForm">
+                                                 update=":studentForm delete_student_grid">
                                 </p:commandButton>
                             </h:panelGrid>
                         </div>
@@ -115,18 +131,31 @@
                 <div class="card">
                     <h:form>
                         <div class="ui-fluid">
-                            <h:panelGrid columns="1" cellpadding="5">
-                                <p:inputText placeholder="Id" value="#{studentBean.id}"/>
-                                <p:inputText placeholder="Firstname" value="#{studentBean.firstName}"/>
-                                <p:inputText placeholder="Lastname" value="#{studentBean.lastName}"/>
-                                <p:inputText placeholder="Registration number" value="#{studentBean.registrationNumber}"/>
-                                <p:inputText placeholder="Group id" value="#{studentBean.group}"/>
-                                <p:inputText placeholder="Grade" value="#{studentBean.grade}"/>
-                                <p:inputText placeholder="Year" value="#{studentBean.year}"/>
+                            <h:panelGrid id="update_student_grid" columns="1" cellpadding="5">
+                                <p:inputText id="update_firstname" required="true" requiredMessage="Firstname is mandatory !" placeholder="Firstname" value="#{studentBean.firstName}"/>
+                                <p:message for="update_firstname" display="text"/>
+
+                                <p:inputText id="update_lastname" required="true" requiredMessage="Lastname is mandatory !" placeholder="Lastname" value="#{studentBean.lastName}"/>
+                                <p:message for="update_lastname" display="text"/>
+
+                                <p:inputText id="update_registration" required="true" requiredMessage="Registration is mandatory !" placeholder="Registration number" value="#{studentBean.registrationNumber}"/>
+                                <p:message for="update_registration" display="text"/>
+
+                                <label for="update_group">Group</label>
+                                <p:inputText id="update_group" required="true" requiredMessage="Group is mandatory !" placeholder="Group id" value="#{studentBean.group}"/>
+                                <p:message for="update_group" display="text"/>
+
+                                <label for="update_grade">Grade</label>
+                                <p:inputText id="update_grade" required="true" requiredMessage="Grade is mandatory !" placeholder="Grade" value="#{studentBean.grade}"/>
+                                <p:message for="update_grade" display="text"/>
+
+                                <label for="update_year">Year</label>
+                                <p:inputText id="update_year" required="true" requiredMessage="Year is mandatory !" placeholder="Year" value="#{studentBean.year}"/>
+                                <p:message for="update_year" display="text"/>
 
                                 <p:commandButton value="Submit"
-                                                 action="#{studentBean.updateStudent}"
-                                                 update=":studentForm">
+                                                 action="#{studentBean.addStudent}"
+                                                 update=":studentForm update_student_grid">
                                 </p:commandButton>
                             </h:panelGrid>
                        </div>

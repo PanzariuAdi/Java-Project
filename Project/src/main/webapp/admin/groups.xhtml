@@ -63,12 +63,13 @@
                 <div class="card">
                     <h:form>
                         <div class="ui-fluid">
-                            <h:panelGrid columns="1" cellpadding="5">
-                                <p:inputText placeholder="Firstname" value="#{groupBean.name}" />
+                            <h:panelGrid id="add_group_grid" columns="1" cellpadding="5">
+                                <p:inputText id="add_name" required="true" requiredMessage="Name is mandatory !"  placeholder="Name" value="#{groupBean.name}" />
+                                <p:message for="add_name" display="text"/>
 
                                 <p:commandButton value="Submit"
                                                  action="#{groupBean.addGroup}"
-                                                 update=":groupForm" >
+                                                 update=":groupForm add_group_grid" >
                                 </p:commandButton>
                             </h:panelGrid>
                         </div>
@@ -80,12 +81,14 @@
                 <div class="card">
                     <h:form>
                         <div class="ui-fluid">
-                            <h:panelGrid columns="1" cellpadding="5">
-                                <p:inputText placeholder="Group id" value="#{groupBean.id}" />
+                            <h:panelGrid id="delete_group_grid" columns="1" cellpadding="5">
+                                <label for="delete_group_id">Id</label>
+                                <p:inputText id="delete_group_id" required="true" requiredMessage="Id mandatory !" placeholder="Group id" value="#{groupBean.id}" />
+                                <p:message for="delete_group_id" display="text"/>
 
                                 <p:commandButton value="Submit"
                                                  action="#{groupBean.deleteGroup}"
-                                                 update=":groupForm" >
+                                                 update=":groupForm delete_group_grid" >
                                 </p:commandButton>
                             </h:panelGrid>
                         </div>
@@ -97,13 +100,17 @@
                 <div class="card">
                     <h:form>
                         <div class="ui-fluid">
-                            <h:panelGrid columns="1" cellpadding="5">
-                                <p:inputText placeholder="Group id" value="#{groupBean.id}" />
-                                <p:inputText placeholder="Name" value="#{groupBean.name}" />
+                            <h:panelGrid id="update_group_grid" columns="1" cellpadding="5">
+                                <label for="update_group_id">Id</label>
+                                <p:inputText id="update_group_id" required="true" requiredMessage="Id mandatory !" placeholder="Group id" value="#{groupBean.id}" />
+                                <p:message for="update_group_id" display="text"/>
+
+                                <p:inputText id="update_group_name" required="true" requiredMessage="Name is mandatory !" placeholder="Name" value="#{groupBean.name}" />
+                                <p:message for="update_group_name" display="text"/>
 
                                 <p:commandButton value="Submit"
                                                  action="#{groupBean.updateGroup}"
-                                                 update=":groupForm" >
+                                                 update=":groupForm update_group_grid" >
                                 </p:commandButton>
                             </h:panelGrid>
                         </div>

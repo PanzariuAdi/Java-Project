@@ -22,9 +22,9 @@ public class StudentBean implements Serializable {
     private String firstName;
     private String lastName;
     private String registrationNumber;
-    private int group;
-    private float grade;
-    private int year;
+    private int group = 1;
+    private float grade = 10;
+    private int year = 1;
 
     public void addStudent() {
         Student student = new Student(

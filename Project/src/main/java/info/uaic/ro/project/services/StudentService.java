@@ -33,4 +33,10 @@ public class StudentService implements Service<Student> {
         studentRepository.remove(student);
     }
 
+    public boolean isRegistrationValid(String registration) {
+        return findAll()
+                .stream()
+                .anyMatch(s -> s.getRegistrationNumber().equals(registration));
+    }
+
 }
