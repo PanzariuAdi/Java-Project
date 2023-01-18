@@ -132,6 +132,9 @@
                     <h:form>
                         <div class="ui-fluid">
                             <h:panelGrid id="update_student_grid" columns="1" cellpadding="5">
+                                <p:inputText id="update_id" required="true" requiredMessage="Id is mandatory !" placeholder="Id" value="#{studentBean.id}"/>
+                                <p:message for="update_id" display="text"/>
+
                                 <p:inputText id="update_firstname" required="true" requiredMessage="Firstname is mandatory !" placeholder="Firstname" value="#{studentBean.firstName}"/>
                                 <p:message for="update_firstname" display="text"/>
 
@@ -154,7 +157,7 @@
                                 <p:message for="update_year" display="text"/>
 
                                 <p:commandButton value="Submit"
-                                                 action="#{studentBean.addStudent}"
+                                                 action="#{studentBean.updateStudent}"
                                                  update=":studentForm update_student_grid">
                                 </p:commandButton>
                             </h:panelGrid>
