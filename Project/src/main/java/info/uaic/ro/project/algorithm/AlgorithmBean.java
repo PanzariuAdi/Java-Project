@@ -25,8 +25,10 @@ import java.util.stream.Collectors;
 public class AlgorithmBean implements Serializable {
     @Inject
     StudentService studentService;
+    
     @Inject
     PreferenceService preferenceService;
+    
     @Inject
     GroupService groupService;
 

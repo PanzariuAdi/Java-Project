@@ -11,6 +11,7 @@ import java.util.List;
 public class SecretaryController {
     @Inject
     StudentService studentService;
+   
     @Inject
     GroupService groupService;
 

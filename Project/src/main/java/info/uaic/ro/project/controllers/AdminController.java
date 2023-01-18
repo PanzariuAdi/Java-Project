@@ -1,9 +1,7 @@
 package info.uaic.ro.project.controllers;
 
 import info.uaic.ro.project.entities.Secretary;
-import info.uaic.ro.project.entities.Student;
 import info.uaic.ro.project.services.SecretaryService;
-import info.uaic.ro.project.services.StudentService;
 
 import javax.inject.Inject;
 import java.util.List;

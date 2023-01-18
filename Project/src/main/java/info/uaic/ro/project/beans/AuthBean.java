@@ -11,7 +11,7 @@ import java.io.Serializable;
 @Named
 @Dependent
 public class AuthBean implements Serializable {
-    String HOME_URL = "http://localhost:8080/Project-1.0-SNAPSHOT/";
+    String HOME_URL = "http://localhost:8080/Project/";
 
     public void logout() {
         try {
