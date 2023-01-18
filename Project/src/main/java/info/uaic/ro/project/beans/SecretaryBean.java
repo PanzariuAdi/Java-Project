@@ -11,8 +11,7 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 
-@Getter
-@Setter
+@Getter @Setter
 @Named
 @ApplicationScoped
 public class SecretaryBean implements Serializable {

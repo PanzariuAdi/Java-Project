@@ -4,14 +4,12 @@ import info.uaic.ro.project.entities.Student;
 import info.uaic.ro.project.services.StudentService;
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 
-@Getter
-@Setter
+@Getter @Setter
 @Named
 @ApplicationScoped
 public class StudentBean implements Serializable {

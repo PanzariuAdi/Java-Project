@@ -8,8 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
 
-@Getter
-@Setter
+@Getter @Setter
 @Named
 @ApplicationScoped
 public class GroupBean implements Serializable {
