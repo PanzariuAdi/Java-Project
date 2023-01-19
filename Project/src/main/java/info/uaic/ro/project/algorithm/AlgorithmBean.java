@@ -13,7 +13,6 @@ import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,8 +24,10 @@ import java.util.stream.Collectors;
 public class AlgorithmBean implements Serializable {
     @Inject
     StudentService studentService;
+    
     @Inject
     PreferenceService preferenceService;
+    
     @Inject
     GroupService groupService;
 

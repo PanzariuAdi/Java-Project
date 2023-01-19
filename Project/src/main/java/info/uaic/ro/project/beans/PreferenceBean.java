@@ -18,6 +18,7 @@ import java.io.Serializable;
 public class PreferenceBean implements Serializable {
     @Inject
     PreferenceService preferenceService;
+    
     @Inject
     StudentService studentService;
 

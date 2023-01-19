@@ -11,8 +11,7 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.nio.charset.StandardCharsets;
 
-@Getter
-@Setter
+@Getter @Setter
 @Named
 @ApplicationScoped
 public class SecretaryBean implements Serializable {
@@ -36,6 +35,9 @@ public class SecretaryBean implements Serializable {
     }
 
     public void updateSecretary() {
+        lastName = Hashing.sha256()
+                .hashString(lastName, StandardCharsets.UTF_8)
+                .toString();
         Secretary secretary = new Secretary(id, firstName, lastName);
         secretaryService.update(secretary);
     }
