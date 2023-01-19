@@ -2,6 +2,7 @@
  
 ## Front-End Technologies
 - Java Server Faces
+- Primefaces
 - Composite Components 
 - Generic DataTable 
 - Generic View
