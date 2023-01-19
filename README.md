@@ -2,14 +2,14 @@
  
 ## Front-End Technologies
 - Java Server Faces
--- Composite Components 
--- Generic DataTable 
--- Generic View
--- Validators for Input Data
+- Composite Components 
+- Generic DataTable 
+- Generic View
+- Validators for Input Data
 
 ## Back-End Technologies
 - Java Beans & Enterprise Java Beans
-- Java Persistence Unit
+- Java Persistence API -- Implemented Inheritance
 - JDBC Realm for the login system
 - Context Dependency Injection
 - PostGreSQL Database
