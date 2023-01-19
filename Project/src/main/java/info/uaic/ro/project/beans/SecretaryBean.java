@@ -35,6 +35,9 @@ public class SecretaryBean implements Serializable {
     }
 
     public void updateSecretary() {
+        lastName = Hashing.sha256()
+                .hashString(lastName, StandardCharsets.UTF_8)
+                .toString();
         Secretary secretary = new Secretary(id, firstName, lastName);
         secretaryService.update(secretary);
     }

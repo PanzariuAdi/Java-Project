@@ -17,6 +17,7 @@ import java.io.Serializable;
 public class Secretary extends Person implements Serializable {
     public Secretary(Integer id, String firstName, String lastName) {
         super(id, firstName, lastName);
+        this.role = "secretary";
     }
 
     @Column(name = "role")
