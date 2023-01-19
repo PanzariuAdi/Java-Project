@@ -10,7 +10,7 @@
 ## Back-End Technologies
 - Java Beans & Enterprise Java Beans
 - Java Persistence Unit
-- Java Realm for the login system
+- JDBC Realm for the login system
 - Context Dependency Injection
 - PostGreSQL Database
 
